@@ -1,0 +1,37 @@
+#Task 1
+def is_anagram(str1, str2):
+    # Remove white space and punctuation and convert to lowercase
+    clean_str1 = ''.join(char.lower() for char in str1 if char.isalnum())
+    clean_str2 = ''.join(char.lower() for char in str2 if char.isalnum())
+
+    # Check if the sorted characters are the same
+    return sorted(clean_str1) == sorted(clean_str2)
+
+# Example usage
+word1 = "parliament"
+word2 = "partial men"
+result = is_anagram(word1, word2)
+print(f"{word1} and {word2} are anagrams: {result}")
+
+
+
+#Task 2
+def is_hexadecimal(input_str):
+    # Check if all characters are hexadecimal digits
+    return all(char.isdigit() or char.lower() in 'abcdef' for char in input_str)
+
+def hex_to_decimal(hex_str):
+    try:
+        # Convert hexadecimal to decimal
+        decimal_value = int(hex_str, 16)
+        return decimal_value
+    except ValueError:
+        return None
+
+# Example usage
+hex_input = input("Enter a string: ")
+if is_hexadecimal(hex_input):
+    decimal_value = hex_to_decimal(hex_input)
+    print(f"The decimal value of {hex_input} is: {decimal_value}")
+else:
+    print("Error: Input is not a valid hexadecimal string.")
